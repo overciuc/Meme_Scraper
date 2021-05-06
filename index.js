@@ -1,18 +1,34 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
-//const fetch = require('node-fetch');
+const fetch = require('node-fetch');
+const fs = require('fs');
 
 const site = 'https://memegen-link-examples-upleveled.netlify.app/';
 
-axios(site)
-    .then((response) => {
-        const html = response.data;
-        const dom = cheerio.load(html);
-        const images = dom('img');
-        const imageArray = [];
-        for (let i = 0; i < 10; i++) {
-            imageArray.push(images[i]);
-            console.log(imageArray);
+axios.get(site).then((response) => {
+    const html = response.data;
+    const dom = cheerio.load(html);
+    const imageArray = [];
+    dom('img').each((i, img) => {
+        if (i <= 9) {
+            imageArray.push(img.attribs.src);
         }
-    })
-    .catch(console.error);
+    });
+
+    for (let i = 0; i < imageArray.length; i++) {
+        async function downloadImages() {
+            const getImageResponse = await fetch(imageArray[i]);
+            const myBlob = await getImageResponse.buffer();
+            fs.writeFile(`./Memes/${i}.jpg`, myBlob, () =>
+                /*const progressDots = '.'.repeat(i);
+                                      const left = 9 - i;
+                                      const empty = ' '.repeat(left);
+                                      process.stdout.write(`\r[${progressDots}${empty}] ${i * 9 + 19}%`);
+                                      */
+                console.log(`Image ${i} download and saving complete`),
+            );
+        }
+        downloadImages();
+    }
+    //console.log(imageArray);
+});
