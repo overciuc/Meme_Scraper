@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-node-protocol */
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
@@ -25,5 +26,5 @@ axios.get(site).then((response) => {
         }
         downloadImages();
     }
-    //console.log(imageArray);
+    // console.log(imageArray);
 });
