@@ -20,11 +20,6 @@ axios.get(site).then((response) => {
             const getImageResponse = await fetch(imageArray[i]);
             const myBlob = await getImageResponse.buffer();
             fs.writeFile(`./Memes/${i}.jpg`, myBlob, () =>
-                /*const progressDots = '.'.repeat(i);
-                                      const left = 9 - i;
-                                      const empty = ' '.repeat(left);
-                                      process.stdout.write(`\r[${progressDots}${empty}] ${i * 9 + 19}%`);
-                                      */
                 console.log(`Image ${i} download and saving complete`),
             );
         }
