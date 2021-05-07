@@ -1,12 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable unicorn/prefer-node-protocol */
 const fetch = require('node-fetch');
-const axios = require('axios');
 const fs = require('fs');
-const cheerio = require('cheerio');
 const readline = require('readline');
 
-let userInput1 = process.argv[2];
-let userInput2 = process.argv[3];
-let userInput3 = process.argv[4];
+const userInput1 = process.argv[2];
+const userInput2 = process.argv[3];
+const userInput3 = process.argv[4];
 
 const rl = readline.createInterface({
     input: process.stdin,
