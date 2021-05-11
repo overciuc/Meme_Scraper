@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable unicorn/prefer-node-protocol */
 const fetch = require('node-fetch');
 const fs = require('fs');
 const readline = require('readline');

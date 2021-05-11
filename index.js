@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-node-protocol */
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
