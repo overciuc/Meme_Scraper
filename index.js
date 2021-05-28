@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-node-protocol */
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
@@ -6,6 +5,9 @@ const fs = require('fs');
 
 // fetch the html from url
 const site = 'https://memegen-link-examples-upleveled.netlify.app/';
+
+fs.mkdirSync('./Memes', { recursive: true });
+console.log('Creating your new Memes folder...');
 
 axios.get(site).then((response) => {
   const html = response.data;
@@ -31,5 +33,4 @@ axios.get(site).then((response) => {
     }
     downloadImages();
   }
-  // console.log(imageArray);
 });
