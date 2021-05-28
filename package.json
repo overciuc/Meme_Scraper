@@ -2,10 +2,15 @@
   "name": "meme_scraper",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "yarn babel-node --plugins @upleveled/remove-node-prefix index.js"
+  },
   "repository": "https://github.com/overciuc/Meme_Scraper.git",
   "author": "Olga Verciuc <o.verciuc@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
     "@next/eslint-plugin-next": "10.2.2",
     "@types/node": "15.0.1",
     "@types/node-fetch": "^2.5.10",
@@ -13,6 +18,7 @@
     "@types/react-dom": "17.0.5",
     "@typescript-eslint/eslint-plugin": "4.21.0",
     "@typescript-eslint/parser": "4.21.0",
+    "@upleveled/babel-plugin-remove-node-prefix": "^1.0.4",
     "@upleveled/eslint-config-upleveled": "1.13.5",
     "babel-eslint": "10.1.0",
     "eslint": "7.23.0",
