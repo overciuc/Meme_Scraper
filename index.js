@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
-const fs = require('fs');
+const fs = require('node:fs');
 
 // fetch the html from url
 const site = 'https://memegen-link-examples-upleveled.netlify.app/';
